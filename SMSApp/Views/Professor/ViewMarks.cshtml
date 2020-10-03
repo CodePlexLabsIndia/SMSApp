@@ -1,0 +1,448 @@
+﻿@model SMSApp.Entities.StudentMarks
+@using SMSApp.Controllers
+@{
+    ViewBag.Title = "ViewMarks";
+    Layout = "~/Views/Shared/_PrivateLayout.cshtml";
+}
+
+@{Html.BeginForm("ViewMarks", "Professor", FormMethod.Post, new { id = "frm_add_proff", dialog = "false", enctype = "multipart/form-data" });}
+<script src="~/Scripts/jquery-ui.js"></script>
+<div class="page-content">
+    <h2>Upload Subject Marks</h2>
+
+    <table>
+        <tr>
+            <td>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+
+                    <fieldset>
+                        <legend>Student Marks</legend>
+                        <table cellpadding="1" cellspacing="1" class="dataTable table table-striped">
+
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        Student Name
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.DropDownList("StudentId", new SelectList(Helper.GetDDLProfessor(3), "ProffesorID", "ProffesorName"), "--Select--", new { @required = "required" })
+                                        @Html.ValidationMessageFor(model => model.StudentId)
+                                    </div>
+
+                                </td>
+                            </tr>
+
+                            
+
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Subject1)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Subject1,new { @required = "required" })
+                                        @Html.ValidationMessageFor(model => model.Subject1)
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Marks1)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Marks1, new { @onkeyup = "onchangeevent(this);", @required = "required" })
+                                        @Html.ValidationMessageFor(model => model.Marks1)
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Grade1)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Grade1, new { @readonly = "readonly", @required = "required" })
+                                        @Html.ValidationMessageFor(model => model.Grade1)
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Subject2)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Subject2, new { @required = "required" })
+                                        @Html.ValidationMessageFor(model => model.Subject2)
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Marks2)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Marks2, new { @onkeyup = "onchangeevent(this);", @required = "required" })
+                                        @Html.ValidationMessageFor(model => model.Marks2)
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Grade2)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Grade2, new { @readonly = "readonly", @required = "required" })
+                                        @Html.ValidationMessageFor(model => model.Grade2)
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Subject3)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Subject3, new { @required = "required" })
+                                        @Html.ValidationMessageFor(model => model.Subject3)
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Marks3)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Marks3, new { @onkeyup = "onchangeevent(this);", @required = "required" })
+                                        @Html.ValidationMessageFor(model => model.Marks3)
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Grade3)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Grade3, new { @readonly = "readonly", @required = "required" })
+                                        @Html.ValidationMessageFor(model => model.Grade3)
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Subject4)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Subject4)
+                                        @Html.ValidationMessageFor(model => model.Subject4)
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Marks4)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Marks4, new { @onkeyup = "onchangeevent(this);" })
+                                        @Html.ValidationMessageFor(model => model.Marks4)
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Grade4)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Grade4, new { @readonly = "readonly" })
+                                        @Html.ValidationMessageFor(model => model.Grade4)
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Subject5)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Subject5)
+                                        @Html.ValidationMessageFor(model => model.Subject5)
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Marks5)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Marks5, new { @onkeyup = "onchangeevent(this);" })
+                                        @Html.ValidationMessageFor(model => model.Marks5)
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Grade5)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Grade5, new { @readonly = "readonly" })
+                                        @Html.ValidationMessageFor(model => model.Grade5)
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Subject6)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Subject6)
+                                        @Html.ValidationMessageFor(model => model.Subject6)
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Marks6)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Marks6, new { @onkeyup = "onchangeevent(this);" })
+                                        @Html.ValidationMessageFor(model => model.Marks6)
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Grade6)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Grade6, new { @readonly = "readonly" })
+                                        @Html.ValidationMessageFor(model => model.Grade6)
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.TotalMarks)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.TotalMarks)
+                                        @Html.ValidationMessageFor(model => model.TotalMarks)
+                                    </div>
+
+                                </td>                           
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Percentage)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Percentage)
+                                        @Html.ValidationMessageFor(model => model.Percentage)
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.FinalGrade)
+                                    </div>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.FinalGrade)
+                                        @Html.ValidationMessageFor(model => model.FinalGrade)
+                                    </div>
+
+                                </td>
+                            </tr>
+                        </table>                       
+                        <p>
+                            <input type="submit" value="Save" class="button" />
+                        </p>
+                        <input type="hidden" name="hdnerrorMessege" id="hdnerrorMessege" value="@TempData["errorMessege"]" />
+                    </fieldset>
+                }
+
+            </td>
+        </tr>
+    </table>
+</div>
+<script type="text/javascript">
+      $(function () {
+          if ($("#hdnerrorMessege").val() != '') {
+              alert($("#hdnerrorMessege").val());
+              $('#frm_Assignment')[0].reset();
+          }
+      });
+    function onchangeevent(myid) {
+        var MarksId = myid.id;
+        var marks = myid.value;
+        var finalGrade = "F";
+        var GradeId = "Grade" + MarksId.split("Marks")[1];
+        if (isNaN(marks)) {
+            alert("Please enter valid marks.");
+            $("#" + myid.id).val("");
+        }
+        else if (marks > 100) {
+            alert("Max marks will be 100 only..");
+            $("#" + myid.id).val("");
+        }
+        else {
+            if (91 < marks && marks <= 100) {
+                finalGrade = "O";
+            }
+            else if (81 < marks && marks <= 90) {
+                finalGrade = "E";
+            }
+            else if (71 < marks && marks <= 80) {
+                finalGrade = "A";
+            }
+            else if (61 < marks && marks <= 70) {
+                finalGrade = "B";
+            }
+            else if (51 < marks && marks <= 60) {
+                finalGrade = "C";
+            }
+            else if (31 < marks && marks <= 50) {
+                finalGrade = "D";
+            }
+            else if (0 < marks && marks <= 30) {
+                finalGrade = "F";
+            }
+            $("#" + GradeId).val(finalGrade);
+            var totalmarksfull = 0;
+            var numnotzero = 0;
+            var mypercentage = 0;
+            for (var i = 1; i < 7; i++) {
+                if (parseInt($("#Marks" + i).val()) >0) {
+                    numnotzero += 1;
+                }
+                totalmarksfull += parseInt($("#Marks" + i).val());
+            }
+            $("#TotalMarks").val(totalmarksfull);
+            $("#Percentage").val(parseInt(totalmarksfull / (numnotzero * 100) *100));
+            // Final Grade
+            var fullfinalGrade="F";
+            marks= parseInt($("#Percentage").val()) ;
+            if (isNaN(marks)) {
+                $("#FinalGrade").val("");
+            }
+            else if (marks > 100) {
+                $("#FinalGrade").val("");
+            }
+            else {
+                if (91 < marks && marks <= 100) {
+                    fullfinalGrade = "O";
+                }
+                else if (81 < marks && marks <= 90) {
+                    fullfinalGrade = "E";
+                }
+                else if (71 < marks && marks <= 80) {
+                    fullfinalGrade = "A";
+                }
+                else if (61 < marks && marks <= 70) {
+                    fullfinalGrade = "B";
+                }
+                else if (51 < marks && marks <= 60) {
+                    fullfinalGrade = "C";
+                }
+                else if (31 < marks && marks <= 50) {
+                    fullfinalGrade = "D";
+                }
+                else if (0 < marks && marks <= 30) {
+                    fullfinalGrade = "F";
+                }
+
+                $("#FinalGrade").val(fullfinalGrade);
+            }
+
+         
+        }
+    }
+</script>

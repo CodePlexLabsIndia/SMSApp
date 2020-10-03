@@ -1,0 +1,71 @@
+﻿@using SMSApp.Entities
+@using SMSApp.Controllers
+@{
+    ViewBag.Title = "AddProfessor";
+    Layout = "~/Views/Shared/_PrivateLayout.cshtml";
+}
+@model UserInfoEntity
+@{Html.BeginForm("ParentsDetails", "Student", FormMethod.Post, new { id = "frm_parent_info", dialog = "false", enctype = "multipart/form-data" });}
+<script src="~/Scripts/jquery-ui.js"></script>
+<div class="page-content">
+    <h2>Education Details</h2>
+    <table cellpadding="4" cellspacing="4">
+        <tbody>
+            <tr>
+                <td>Father Name</td>
+                <td>
+                    @Html.TextBoxFor(m => m.FatherName, new { @maxlength = 150, @required = "required" })
+                </td>
+            </tr>
+            <tr>
+                <td>Mother Name</td>
+                <td>
+                @Html.TextBoxFor(m => m.MotherName, new { @maxlength = 150, @required = "required" })
+            </tr>
+            <tr>
+                <td>Present Addres</td>
+                <td>
+                @Html.TextBoxFor(m => m.PresentAddress, new { @maxlength = 500, @required = "required" })
+            </tr>
+            <tr>
+                <td>Permanent Address</td>
+                <td>
+                    @Html.TextBoxFor(m => m.PermanentAddress, new { @maxlength = 500, @required = "required" })
+                </td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>
+                    @Html.TextBoxFor(m => m.ParentPhone, new { @maxlength = 15, @required = "required" })
+                </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>
+                    @Html.TextBoxFor(m => m.ParentEmail, new { @maxlength = 100, @required = "required" })
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input class="button" type="submit" id="btnSubmit" name="btnSubmit" value="Save Details"></td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="hidden" name="hdnerrorMessege" id="hdnerrorMessege" value="@TempData["errorMessege"]" />
+</div>
+
+@{Html.EndForm();}
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            if ($("#hdnerrorMessege").val() != '') {
+                alert($("#hdnerrorMessege").val());
+                //$('#frm_parent_info input').attr('value', '');
+                //$('#frm_parent_info')[0].reset();
+            }
+        });
+    </script>
+}

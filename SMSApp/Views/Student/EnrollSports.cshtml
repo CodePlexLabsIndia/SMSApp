@@ -1,0 +1,53 @@
+﻿@model SMSApp.Entities.EnrollSports
+@using SMSApp.Controllers;
+@{
+    ViewBag.Title = "EnrollSports";
+    Layout = "~/Views/Shared/_PrivateLayout.cshtml";
+}
+
+<h2>EnrollSports</h2>
+
+@using (Html.BeginForm("EnrollSports", "Student", FormMethod.Post, new { id = "frm_enroll_Sports", dialog = "false", enctype = "multipart/form-data" }))
+{ 
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Enroll Sports</legend>       
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SportsId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("SportsId", new SelectList(Helper.GetDDLSportsType(), "CourseID", "CourseName"), "--Select--", new { @required = "required" })
+        
+            @Html.ValidationMessageFor(model => model.SportsId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.description)
+            @Html.ValidationMessageFor(model => model.description)
+        </div>
+
+        <p>
+            <input type="submit" value="Enroll" />
+        </p>
+    </fieldset>
+}
+<input type="hidden" name="hdnerrorMessege" id="hdnerrorMessege" value="@TempData["errorMessege"]" />
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            if ($("#hdnerrorMessege").val() != '') {
+                alert($("#hdnerrorMessege").val());
+             //   $('#frm_enroll_Sports input').attr('value', '');
+               // $('#frm_enroll_Sports')[0].reset();
+            }
+        });
+    </script>
+}

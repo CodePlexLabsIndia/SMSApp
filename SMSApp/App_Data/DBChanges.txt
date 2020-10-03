@@ -1,0 +1,22 @@
+﻿Please Write All Database Changes Here
+--------------------------------------
+
+
+DDL Changes
+-----------
+1) Created [add_discussion_prof]
+2) Created [ems.Discussion]
+
+
+
+DML Changes
+-----------
+
+
+
+
+LOOKUP Changes
+--------------
+
+
+

@@ -1,0 +1,337 @@
+﻿@model SMSApp.Entities.StudentMarks
+@using SMSApp.Controllers
+
+@{
+    ViewBag.Title = "View Grade";
+    Layout = "~/Views/Shared/_PrivateLayout.cshtml";
+}
+
+<table class="table table-condensed padding-30">
+    <tr>
+        <td>
+            <h2>View Grade</h2>
+
+            @using (Html.BeginForm())
+            {
+                <fieldset>
+                    <legend>Student Marks</legend>
+                    <table cellpadding="1" cellspacing="1" class="dataTable table table-striped">
+
+                        <tr>
+                            <td>
+                                <div class="editor-label">
+                                    Student Name
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                  <label>@SessionManager.LoginUserInfo.UserName</label>
+                                </div>
+
+                            </td>
+                        </tr>
+                       
+                        <tr>
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Subject1)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.DisplayFor(model => model.Subject1)
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Marks1)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.DisplayFor(model => model.Marks1)
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Grade1)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.DisplayFor(model => model.Grade1)
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Subject2)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.DisplayFor(model => model.Subject2)
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Marks2)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.DisplayFor(model => model.Marks2)
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Grade2)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.DisplayFor(model => model.Grade2)
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Subject3)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.DisplayFor(model => model.Subject3)
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Marks3)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.DisplayFor(model => model.Marks3)
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Grade3)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.DisplayFor(model => model.Grade3)
+                                   
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Subject4)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.DisplayFor(model => model.Subject4)
+                                    
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Marks4)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.DisplayFor(model => model.Marks4)
+                                   
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Grade4)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.DisplayFor(model => model.Grade4)
+                                    
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Subject5)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.DisplayFor(model => model.Subject5)
+                                   
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Marks5)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.DisplayFor(model => model.Marks5)
+                                   
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Grade5)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.DisplayFor(model => model.Grade5)
+                                  
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Subject6)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.DisplayFor(model => model.Subject6)
+                                   
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Marks6)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.DisplayFor(model => model.Marks6)
+                                   
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Grade6)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.DisplayFor(model => model.Grade6)
+                                  
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.TotalMarks)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.TotalMarks)
+                                    @Html.ValidationMessageFor(model => model.TotalMarks)
+                                </div>
+
+                            </td>
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Percentage)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.Percentage)
+                                    @Html.ValidationMessageFor(model => model.Percentage)
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.FinalGrade)
+                                </div>
+                            </td>
+                            <td>:</td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.FinalGrade)
+                                    @Html.ValidationMessageFor(model => model.FinalGrade)
+                                </div>
+
+                            </td>
+                        </tr>
+                    </table>
+
+                   
+                    
+                </fieldset>
+            }
+
+        </td>
+    </tr>
+</table>
+

@@ -1,0 +1,141 @@
+﻿
+<!DOCTYPE html >
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+    <meta charset="utf-8">
+    <title>Education Management System</title>
+    <link rel="stylesheet" href="~/styles/style.css" type="text/css">
+    <link href="~/styles/bootstrap.css" rel="stylesheet">
+    <link href="~/styles/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/styles/font-awesome.css">
+    <link rel="stylesheet" href="~/styles/css.css">
+    <link rel="stylesheet" href="~/styles/ace.css">
+    <link rel="stylesheet" href="~/styles/ace-responsive.css">
+    <link rel="stylesheet" href="~/styles/ace-skins.css">
+    <link rel="stylesheet" href="~/styles/jquery-ui-1.css">
+    <link rel="stylesheet" href="~/styles/jquery.css">
+    <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script type="text/javascript">
+
+    $(function(){
+      $(".datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
+      $("#includedContent").load("sidebar.html");
+    });
+    </script>
+    <style>
+        .container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            border-radius: 5px;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+    </style>
+    <style>
+        .ultopnav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .litopnav {
+            float: left;
+            border-right: 1px solid #bbb;
+        }
+
+            .litopnav:last-child {
+                border-right: none;
+            }
+
+            .litopnav a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+                .litopnav a:hover:not(.active) {
+                    background-color: #111;
+                }
+
+        .active {
+            background-color: #4CAF50;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="home">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container-fluid" style="border-bottom:solid;background-image: url(~/images/index.jpg); ">
+                    <ul class="nav ace-nav pull-right">
+                        <li class="light-blue" style="line-height:81px;max-height:81px">
+                            <a href="~/Home/Index">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div>
+            <ul class="ultopnav">
+                <li class="litopnav"><a href="~/Home/Home">Home</a></li>
+                <li class="litopnav"><a href="~/Home/academic">Academics</a></li>
+                <li class="litopnav"><a href="~/Home/sports">Sports</a></li>
+                <li class="litopnav" style="float:right"><a href="~/Home/aboutus">About Us</a></li>
+                <li class="litopnav" style="float:right"><a class="active" href="~/Home/contactus">Contact Us</a></li>
+            </ul>
+            <div class="page-content">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>First Name: </td>
+                            <td>
+                                <input type="text" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Last Name: </td>
+                            <td>
+                                <input type="text" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Email Id: </td>
+                            <td>
+                                <input type="text" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Phone No: </td>
+                            <td>
+                                <input type="text" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Information: </td>
+                            <td>
+                                <input type="text" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><input type="submit" value="Submit"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

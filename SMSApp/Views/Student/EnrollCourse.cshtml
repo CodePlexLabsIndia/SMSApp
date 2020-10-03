@@ -1,0 +1,87 @@
+﻿@model SMSApp.Entities.EnrollCourse
+    @using SMSApp.Controllers;
+
+@{
+    ViewBag.Title = "EnrollCourse";
+    Layout = "~/Views/Shared/_PrivateLayout.cshtml";
+}
+<script src="~/Scripts/jquery-ui.js"></script>
+<div class="page-content">
+    <h2>EnrollCourse</h2>
+
+    @using (Html.BeginForm("EnrollCourse", "Student", FormMethod.Post, new { id = "frm_enroll_Course", dialog = "false", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Enroll Course</legend>          
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CourseId)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("CourseId", new SelectList(Helper.GetDDLCourse(), "CourseID", "CourseName"), "--Select--", new { @required = "required" })
+                @Html.ValidationMessageFor(model => model.CourseId)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CourseType)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("CourseType", new List<SelectListItem> {
+           new SelectListItem { Text="Full Time", Value="1" },
+            new SelectListItem { Text="Part Time", Value="2" },
+             new SelectListItem { Text="Others", Value="3" }
+       }, "--Select--", new { @required = "required" })
+                @Html.ValidationMessageFor(model => model.CourseType)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SchoolName)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.SchoolName, new { @required = "required" })
+                @Html.ValidationMessageFor(model => model.SchoolName)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.LocationName)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.LocationName, new { @required = "required" })
+                @Html.ValidationMessageFor(model => model.LocationName)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Professorid)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("Professorid", new SelectList(Helper.GetDDLProfessor(2), "ProffesorID", "ProffesorName"), "--Select--", new { @required = "required" })
+                @Html.ValidationMessageFor(model => model.Professorid)
+            </div>
+            <p>
+                <input type="submit" value="Enroll" />
+            </p>
+        </fieldset>
+    }
+    <input type="hidden" name="hdnerrorMessege" id="hdnerrorMessege" value="@TempData["errorMessege"]" />
+
+    <div>
+       
+    </div>
+    </div>
+@section Scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            if ($("#hdnerrorMessege").val() != '') {
+                alert($("#hdnerrorMessege").val());
+                //$('#frm_enroll_Course input').attr('value', '');
+                //$('#frm_enroll_Course')[0].reset();
+            }
+        });
+    </script>
+}
+
+

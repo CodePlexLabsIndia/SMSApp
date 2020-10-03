@@ -1,0 +1,36 @@
+﻿@using SMSApp.Entities
+@{
+    ViewBag.Title = "Students Rank";
+    Layout = "~/Views/Shared/_PrivateLayout.cshtml";
+}
+@model List<StudentRanks>
+
+<h2>Students Rank</h2>
+<table>
+    <thead>
+        <tr>
+        <tr>
+            <th style="width: 13%;">Student Name</th>
+            <th style="width: 8%;">Rank</th>
+            <th style="width: 8%;">Grade</th>
+        </tr>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rank)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FinalGrade)
+                </td>
+               
+            </tr>
+        }
+    </tbody>
+</table>

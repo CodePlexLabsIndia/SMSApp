@@ -1,0 +1,87 @@
+﻿@model List<SMSApp.Common.Discussion>
+@using SMSApp.Controllers
+@{
+    ViewBag.Title = "View Discussions";
+    Layout = "~/Views/Shared/_PrivateLayout.cshtml";
+}
+
+@{Html.BeginForm("ViewDiscussions", "Professor", FormMethod.Post, new { id = "frm_add_proff", dialog = "false", enctype = "multipart/form-data" });}
+<script src="~/Scripts/jquery-ui.js"></script>
+<div class="page-content">
+    <h2>View Discussions</h2>
+
+    <table>
+        <tbody>
+            <tr>
+                <td>Student Name</td>
+                <td>
+                    @Html.DropDownList("Student_id", new SelectList(Helper.GetDDLProfessor(3), "ProffesorID", "ProffesorName"), "--Select--", new { @required = "required" })
+
+                </td>
+            </tr>
+            <tr>
+                <td>Discussion Topic</td>
+                <td>
+                    <select name="Discussion_topic" id="Discussion_topic" required="required">
+                        <option>Topic-1 </option>
+                        <option>Topic-2 </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Discussion Description</td>
+                <td>
+                    <input type="text" value="" name="Discussion_msg" id="Discussion_msg" required="required">
+                    <input type="hidden" name="id" value="3" id="id" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Save" class="button"></td>
+
+            </tr>
+        </tbody>
+    </table>
+
+    <br />
+
+<table>
+    <thead>
+        <tr>         
+            <th>Student Name</th>
+            <th>Professor Name</th>
+            <th>Discussion Messege</th>
+            <th>Topic</th>
+            <th>Answer</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfessorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discussion_msg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discussion_topic)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiscussionAnswar)
+                </td>               
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+
+
+
+@{Html.EndForm();}
+

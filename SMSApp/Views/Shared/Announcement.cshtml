@@ -1,0 +1,65 @@
+﻿@model SMSApp.Entities.Announcement
+
+@{
+    ViewBag.Title = "Announcement";
+    Layout = "~/Views/Shared/_PrivateLayout.cshtml";
+}
+
+<h2>Announcement</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Announcement</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DestinationId)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.DestinationId)
+            @Html.ValidationMessageFor(model => model.DestinationId)
+        </div>       
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AnnouncementType)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.AnnouncementType)
+            @Html.ValidationMessageFor(model => model.AnnouncementType)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AnnounceDate)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.AnnounceDate)
+            @Html.ValidationMessageFor(model => model.AnnounceDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreatedDate)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.CreatedDate)
+            @Html.ValidationMessageFor(model => model.CreatedDate)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

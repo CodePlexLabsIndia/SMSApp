@@ -1,0 +1,289 @@
+@{
+    Layout = null;
+}
+@using SMSApp.Controllers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+    <meta charset="utf-8">
+    <title>ASP (CIS 5690)</title>
+
+    <style>
+        div.ui-datepicker {
+            font-size: 15px;
+        }
+
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 3px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        th {
+            background-color: #4CAF50 !important;
+            color: white;
+        }
+    </style>
+    <link href="~/Styles/bootstrap.css" rel="stylesheet" />
+    <link href="~/Styles/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Styles/font-awesome.css" rel="stylesheet" />
+    <script src="~/Scripts/ace.js"></script>
+    <script src="~/Scripts/jquery-1.11.0.min.js"></script>
+
+    @Styles.Render("~/Content/styles")
+    @Scripts.Render("~/bundles/scripts")
+
+
+    @RenderSection("head", required: false)
+    @RenderSection("scripts", required: false)
+
+</head>
+<body>
+    <div class="home">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container-fluid" style="border-bottom: solid">
+                    <h1 style="color: white;">Advanced Systems Project (CIS 5690)</h1>
+                    <span style="float: right; font-size: 18px;">Welcome @SessionManager.LoginUserInfo.FirstName ! | <a style="color: white; font-size: 18px;" href="/Account/Logout">LOGOUT</a> </span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="inner float-group">
+                
+                <div class="main-container container-fluid">
+                    <div id="includedContent">
+                        @if (SessionManager.LoginUserInfo.RoleID == 1) //Admin
+                        {
+                            <div id="sidebar" class="sidebar">
+                                <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+                                    <ul class="nav nav-list">
+                                        <li>&nbsp;&nbsp;&nbsp; Role : Admin</li>
+                                        <li id="MIS" class="active open">
+                                            <a class="dropdown-toggle" href="">
+                                                <i class="icon-desktop"></i>
+                                                <span class="menu-text">Menu </span>
+                                                <b class="arrow icon-angle-down"></b>
+                                            </a>
+                                            <ul class="submenu">
+                                                <li >
+                                                    <a href="~/Account/ChangePassword">
+
+                                                        <i class="icon-double-angle-right"></i>Update Password
+                                                    </a>
+                                                </li>
+                                                <li id="addProfessor">
+                                                    <a href="~/Admin/AddProfessor">
+
+                                                        <i class="icon-double-angle-right"></i>Add Professor
+                                                    </a>
+                                                </li>
+                                                <li id="addStudent">
+                                                    <a href="~/Admin/AddStudent">
+                                                        <i class="icon-double-angle-right"></i>Add Student
+                                                    </a>
+                                                </li>
+                                                <li id="viewEditStudent">
+                                                    <a href="~/Admin/ViewEditStudent">
+                                                        <i class="icon-double-angle-right"></i>View/Edit Student
+                                                    </a>
+                                                </li>
+                                                <li id="viewEditProfessor">
+                                                    <a href="~/Admin/ViewEditProfessor">
+                                                        <i class="icon-double-angle-right"></i>View/Edit Professor
+                                                    </a>
+                                                </li>
+                                                <li id="addAnnouncements">
+                                                    <a href="~/Admin/Announcement">
+                                                        <i class="icon-double-angle-right"></i>Add Announcements
+                                                    </a>
+                                                </li>
+                                                <li id="viewrank">
+                                                    <a href="~/Admin/viewrank">
+                                                        <i class="icon-double-angle-right"></i>View Rank
+                                                    </a>
+                                                </li>
+                                                
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        }
+                        else if (SessionManager.LoginUserInfo.RoleID == 2) // Professor
+                        {
+                            <div id="sidebar" class="sidebar">
+                                <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+                                    <ul class="nav nav-list">
+                                        <li>&nbsp;&nbsp;&nbsp; Role : Professor</li>
+                                        <li id="MIS" class="active open">
+                                            <a class="dropdown-toggle" href="">
+                                                <i class="icon-desktop"></i>
+                                                <span class="menu-text">Menu </span>
+                                                <b class="arrow icon-angle-down"></b>
+                                            </a>
+                                            <ul class="submenu">
+                                                <li>
+                                                    <a href="~/Account/ChangePassword">
+
+                                                        <i class="icon-double-angle-right"></i>Update Password
+                                                    </a>
+                                                </li>
+                                                <li id="professorProfile">
+                                                    <a href="~/Professor/Professor">
+                                                        <i class="icon-double-angle-right"></i>Professor Profile
+                                                    </a>
+                                                </li>
+                                                <li id="studentProfile">
+                                                    <a href="~/Professor/ViewStudents">
+                                                        <i class="icon-double-angle-right"></i>View Student Profile
+                                                    </a>
+                                                </li>
+                                                <li id="discussion">
+                                                    <a href="~/Professor/ViewDiscussions">
+                                                        <i class="icon-double-angle-right"></i>Discussion
+                                                    </a>
+                                                </li>
+                                                <li id="Assignment">
+                                                    <a href="~/Professor/Assignment">
+                                                        <i class="icon-double-angle-right"></i>Add Assignments
+                                                    </a>
+                                                </li>
+                                                <li id="addGrades">
+                                                    <a href="~/Professor/ViewMarks">
+                                                        <i class="icon-double-angle-right"></i>Upload Subject Marks
+                                                    </a>
+                                                </li>
+                                                <li id="addAnnouncements">
+                                                    <a href="~/Professor/Announcement">
+                                                        <i class="icon-double-angle-right"></i>Announcements
+                                                    </a>
+                                                </li>
+                                                <li id="courseAggregateInfo">
+                                                    <a href="#">
+                                                        <i class="icon-double-angle-right"></i>Course Aggregate Info
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        }
+                        else if (SessionManager.LoginUserInfo.RoleID == 3) //Student
+                        {
+                            <div id="sidebar" class="sidebar">
+                                <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+                                    <ul class="nav nav-list">
+                                        <li>&nbsp;&nbsp;&nbsp; Role : Student</li>
+                                        <li id="MIS" class="active open">
+                                            <a class="dropdown-toggle" href="">
+                                                <i class="icon-desktop"></i>
+                                                <span class="menu-text">Menu </span>
+                                                <b class="arrow icon-angle-down"></b>
+                                            </a>
+                                            <ul class="submenu">
+                                                <li>
+                                                    <a href="~/Account/ChangePassword">
+
+                                                        <i class="icon-double-angle-right"></i>Update Password
+                                                    </a>
+                                                </li>
+                                                <li id="studentProfile" class="active open">
+                                                    <a>
+                                                        <i class="icon-double-angle-right"></i>Student Profile
+                                                    </a>
+                                                    <ul class="submenu">
+                                                        <li id="educationDetails">
+                                                            <a href="~/Student/EducationDetails">
+                                                                <i class="icon-double-angle-right"></i>Education Details
+                                                            </a>
+                                                        </li>
+                                                        <li id="viewProfile">
+                                                            <a href="~/Student/ViewStudent">
+                                                                <i class="icon-double-angle-right"></i>Student Profile
+                                                            </a>
+                                                        </li>
+                                                        <li id="guardianDetails">
+                                                            <a href="~/Student/ParentsDetails">
+                                                                <i class="icon-double-angle-right"></i>Guardian Details
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li id="enrollForCourse">
+                                                    <a href="~/Student/EnrollCourse">
+                                                        <i class="icon-double-angle-right"></i>Enroll For Course
+                                                    </a>
+                                                </li>
+                                                <li id="enrollForSports">
+                                                    <a href="~/Student/EnrollSports">
+                                                        <i class="icon-double-angle-right"></i>Enroll For Sports
+                                                    </a>
+                                                </li>
+                                                <li id="fees">
+                                                    <a href="~/Student/StudentFee">
+                                                        <i class="icon-double-angle-right"></i>Fees
+                                                    </a>
+                                                </li>
+                                                <li id="submitAssignments">
+                                                    <a href="~/Student/SubmitAssignment">
+                                                        <i class="icon-double-angle-right"></i>Submit Assignments
+                                                    </a>
+                                                </li>
+                                                <li id="viewGrades">
+                                                    <a href="~/Student/ViewGrade">
+                                                        <i class="icon-double-angle-right"></i>View Grades/Marks
+                                                    </a>
+                                                </li>
+                                                <li id="addDiscussion">
+                                                    <a href="~/Student/Discussion">
+                                                        <i class="icon-double-angle-right"></i>View/Update Discussion
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="main-content" style="margin-left: 208px; margin-right: 15px;">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

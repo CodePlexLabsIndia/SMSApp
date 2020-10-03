@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_PrivateLayout.cshtml";
+}
+@using SMSApp.Controllers
+
+<div class="page-content">
+    <span><marquee>@Helper.GetAnnoucement(SessionManager.LoginUserInfo.UserID,SessionManager.LoginUserInfo.RoleID)</marquee></span>
+  
+    <br />
+    <br />
+    <img src="~/images/Prof.png" />
+    <br />
+    <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Professor Panel</h2>
+</div>
+
+

@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMSApp", "SMSApp\SMSApp.csproj", "{D8DBBC84-D366-4370-A672-C0E16E27A31D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMSApp.Controllers", "SMSApp.Controllers\SMSApp.Controllers.csproj", "{3E194E37-66E4-43B1-9E9D-DA4AD3CC4B5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMSApp.Common", "SMSApp.Common\SMSApp.Common.csproj", "{2FA7406D-0E66-4FED-87E2-CC5128AEAC1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMSApp.Entities", "SMSApp.Entities\SMSApp.Entities.csproj", "{7A84941E-7E9F-49BB-97E1-3DE16DBF3DFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMSApp.DataAccess", "SMSApp.DataAccess\SMSApp.DataAccess.csproj", "{604ADA61-2AB9-4DF4-8D94-ED90950F4C13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordEncrypterDecrypter", "PasswordEncrypterDecrypter\PasswordEncrypterDecrypter.csproj", "{EC629D96-DB04-494E-AE28-0795F239FF7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8DBBC84-D366-4370-A672-C0E16E27A31D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8DBBC84-D366-4370-A672-C0E16E27A31D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8DBBC84-D366-4370-A672-C0E16E27A31D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8DBBC84-D366-4370-A672-C0E16E27A31D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E194E37-66E4-43B1-9E9D-DA4AD3CC4B5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E194E37-66E4-43B1-9E9D-DA4AD3CC4B5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E194E37-66E4-43B1-9E9D-DA4AD3CC4B5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E194E37-66E4-43B1-9E9D-DA4AD3CC4B5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FA7406D-0E66-4FED-87E2-CC5128AEAC1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA7406D-0E66-4FED-87E2-CC5128AEAC1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FA7406D-0E66-4FED-87E2-CC5128AEAC1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA7406D-0E66-4FED-87E2-CC5128AEAC1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A84941E-7E9F-49BB-97E1-3DE16DBF3DFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A84941E-7E9F-49BB-97E1-3DE16DBF3DFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A84941E-7E9F-49BB-97E1-3DE16DBF3DFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A84941E-7E9F-49BB-97E1-3DE16DBF3DFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{604ADA61-2AB9-4DF4-8D94-ED90950F4C13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{604ADA61-2AB9-4DF4-8D94-ED90950F4C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{604ADA61-2AB9-4DF4-8D94-ED90950F4C13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{604ADA61-2AB9-4DF4-8D94-ED90950F4C13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC629D96-DB04-494E-AE28-0795F239FF7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC629D96-DB04-494E-AE28-0795F239FF7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC629D96-DB04-494E-AE28-0795F239FF7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC629D96-DB04-494E-AE28-0795F239FF7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

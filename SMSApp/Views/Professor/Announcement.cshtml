@@ -1,0 +1,100 @@
+﻿@using SMSApp.Entities
+@using SMSApp.Controllers
+
+@model SMSApp.Entities.Announcement
+
+@{
+    ViewBag.Title = "Announcement";
+    Layout = "~/Views/Shared/_PrivateLayout.cshtml";
+}
+
+@{Html.BeginForm("Announcement", "Professor", FormMethod.Post, new { id = "frm_add_proff", dialog = "false", enctype = "multipart/form-data" });}
+<script src="~/Scripts/jquery-ui.js"></script>
+<div class="page-content">
+    <h2>Announcement</h2>
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <table>
+        <tr>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.DestinationId)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.DropDownList("DestinationId", new SelectList(Helper.GetDDLProfessor(3), "ProffesorID", "ProffesorName"), "--Select--", new { @required = "required" })
+                    @Html.ValidationMessageFor(model => model.DestinationId)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.AnnouncementType)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.DropDownList("AnnouncementType", new SelectList(Helper.GetDDLAnnouncement(), "AnnouncementID", "AnnouncementName"), "--Select--", new { @required = "required" })
+                    @Html.ValidationMessageFor(model => model.AnnouncementType)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Description)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Description, new { @required = "required" })
+                    @Html.ValidationMessageFor(model => model.Description)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.AnnounceDate)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.AnnounceDate, "{0:yyyy/MM/dd}", new { @required = "required" })
+                    @Html.ValidationMessageFor(model => model.AnnounceDate)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input class="button" type="submit" value="Publish" />
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" name="hdnerrorMessege" id="hdnerrorMessege" value="@TempData["errorMessege"]" />
+</div>
+
+@{Html.EndForm();}
+@section Scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $("#AnnounceDate").val('');
+            if ($("#hdnerrorMessege").val() != '') {
+                alert($("#hdnerrorMessege").val());
+                $('#frm_add_Ann')[0].reset();
+            }
+
+            $("#AnnounceDate").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'yy/mm/dd',
+                minDate : +0
+            });
+        });
+    </script>
+}

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<SMSApp.Entities.UserInfoEntity>
+
+@{
+    ViewBag.Title = "ViewStudents";
+    Layout = "~/Views/Shared/_PrivateLayout.cshtml";
+}
+
+@{Html.BeginForm("AddProfessor", "Admin", FormMethod.Post, new { id = "frm_add_proff", dialog = "false", enctype = "multipart/form-data" });}
+<script src="~/Scripts/jquery-ui.js"></script>
+<div class="page-content">
+    <h2>View Students</h2>
+
+    <table>
+        <tr class="table-header">
+            <th>First Name
+            </th>
+            <th>Last Name
+            </th>
+            <th>Email Address
+            </th>
+            <th>Phone Number
+            </th>
+            <th>Gender
+            </th>
+            <th>DOB
+            </th>
+            <th>DOJ
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfJoining)
+                </td>
+
+
+            </tr>
+        }
+
+    </table>
+
+</div>
+@{Html.EndForm();}

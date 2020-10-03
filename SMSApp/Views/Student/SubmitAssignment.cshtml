@@ -1,0 +1,155 @@
+﻿@model SMSApp.Entities.Assignment
+@using SMSApp.Controllers
+@{
+    ViewBag.Title = "Assignment";
+    Layout = "~/Views/Shared/_PrivateLayout.cshtml";
+}
+
+@{Html.BeginForm("SubmitAssignment", "Student", FormMethod.Post, new { id = "frm_add_proff", dialog = "false", enctype = "multipart/form-data" });}
+<script src="~/Scripts/jquery-ui.js"></script>
+<div class="page-content">
+    <h2>Assignment</h2>
+
+    <table>
+        <tr>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.SchoolName)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.SchoolName, new { @required = "required" })
+                    @Html.ValidationMessageFor(model => model.SchoolName)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Location)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Location, new { @required = "required" })
+                    @Html.ValidationMessageFor(model => model.Location)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="editor-label">
+                    <label>Professor Name</label>
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.DropDownList("ProfessorId", new SelectList(Helper.GetDDLProfessor(2), "ProffesorID", "ProffesorName", Model.ProfessorId), "--Select--", new { @required = "required" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Course)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.DropDownList("Course", new SelectList(Helper.GetDDLCourse(), "CourseID", "CourseName", Model.Course), "--Select--", new { @required = "required" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="editor-label">
+                    <label>Student</label>
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.DropDownList("StudentId", new SelectList(Helper.GetDDLProfessor(3), "ProffesorID", "ProffesorName", Model.ProfessorId), "--Select--", new { @required = "required" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Year)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Year, new { @required = "required" })
+                    @Html.ValidationMessageFor(model => model.Year)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.AssignmentDate)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.AssignmentDate, "{0:yyyy/MM/dd}", new { @required = "required" })
+                    @Html.ValidationMessageFor(model => model.AssignmentDate)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Topic)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                   @Html.DropDownList("Topic", new SelectList(Helper.GetStudentAssigmentTopic(SessionManager.LoginUserInfo.UserID), "assignment_Id", "Topic", Model.Topic), "--Select--", new { @required = "required" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.AssignmentWork)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                @Html.DropDownList("AssignmentWork", new SelectList(Helper.GetStudentAssigmentWork(SessionManager.LoginUserInfo.UserID), "assignment_Id", "AssignmentWork", Model.AssignmentWork), "--Select--", new { @required = "required" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Add Assignment" class="button" /></td>
+        </tr>
+    </table>
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <input type="hidden" name="hdnerrorMessege" id="hdnerrorMessege" value="@TempData["errorMessege"]" />
+
+</div>
+@section Scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            if ($("#hdnerrorMessege").val() != '') {
+                alert($("#hdnerrorMessege").val());
+                //$('#frm_Assignment')[0].reset();
+            }
+            $('#AssignmentDate').datepicker({
+                dateFormat: "yy/mm/dd", changeMonth: true,
+                changeYear: true
+            }); //Initialise any date pickers
+            $('#AssignmentDate').val("");
+        });
+    </script>
+}
+

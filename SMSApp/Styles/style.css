@@ -1,0 +1,54 @@
+@CHARSET "ISO-8859-1";
+
+.header {
+    overflow: auto;
+}
+
+.headtitle {
+    float: left;
+    width: 500px;
+}
+
+.logoutSection {
+    float: right;
+    margin: 30px;
+}
+
+.content {
+    height: 100px;
+}
+
+.leftSection {
+    float: left;
+    border: 1px solid;
+    padding: 20px;
+    width: 200px;
+    height: 100%;
+}
+
+.rightSection {
+    float: left;
+    padding: 20px;
+    height: 100%;
+}
+
+.nav-list > li {
+    float: left;
+    width: 100%;
+    padding: 9px 0px 9px 0px !important;
+    text-align: left;
+}
+
+.btn-group > .btn, .btn-group + .btn {
+    padding: 0px;
+}
+
+.nav-list a .badge, .nav-list a .label {
+    width: 100px;
+}
+
+.navbar-inner .container-fluid {
+    background-image: url("../assets/img/index.jpg");
+    background-repeat: repeat-x;
+    height: 80px;
+}
